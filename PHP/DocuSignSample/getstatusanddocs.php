@@ -48,7 +48,7 @@ function createStatusTable() {
         
         if (isset($statuses)) {
         	//pr($statuses);
-        	?> <ul class=""> <?
+        	?> <ul class=""> <?php
 	            foreach ($statuses->EnvelopeStatuses->EnvelopeStatus as $status) {
 		           ?>
 		           		<li>
@@ -63,15 +63,15 @@ function createStatusTable() {
 				           			<span>Recipients (<?= count($status->RecipientStatuses->RecipientStatus); ?>)</span>
 				           			<ul id="<?= $status->EnvelopeID; ?>">
 				           				
-				           				<? foreach($status->RecipientStatuses->RecipientStatus as $rcpStatus){ ?>
+				           				<?php foreach($status->RecipientStatuses->RecipientStatus as $rcpStatus){ ?>
 				           							<li>
 				           								<!-- Recipient Name and Start Signing -->
-				           								<?
+				           								<?php
 				           									echo $rcpStatus->UserName;
 				           								?> 
 				           								<a href="embeddocusign.php?from_gsad=1&envelopeID=<?= $status->EnvelopeID; ?>&clientID=<?= $rcpStatus->ClientUserId ?>">Start Signing</a>
 				           							</li>
-				           				<? } ?>
+				           				<?php } ?>
 				           				
 				           			</ul>
 				           		</li>
@@ -81,19 +81,19 @@ function createStatusTable() {
 		           				<li>
 		           					<span>Documents (<?= count($status->DocumentStatuses->DocumentStatus); ?>)</span>
 		           					<ul>
-		           						<? foreach($status->DocumentStatuses->DocumentStatus as $docStatus){ ?>
+		           						<?php foreach($status->DocumentStatuses->DocumentStatus as $docStatus){ ?>
 				           						<li>
 				           							<?= $docStatus->Name; ?>
 				           						</li>
-				           				<? } ?>
+				           				<?php } ?>
 		           					</ul>
 		           				</li>
 				           		
 				           	</ul>
 		           		</li>
-		           <?
+		           <?php
 	            };
-        	?> </ul> <?
+        	?> </ul> <?php
         }
     } else {
       // No Envelopes created yet

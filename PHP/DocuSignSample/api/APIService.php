@@ -578,6 +578,19 @@ class RecipientCorrectionStatus {
   public $RecipientStatus; // RecipientStatus
 }
 
+class RequestEnvelopeHistoryToken {
+  public $Arg; // RequestEnvelopeHistoryTokenArg
+}
+
+class RequestEnvelopeHistoryTokenArg {
+  public $EnvelopeId; // string
+  public $ReturnURL; // string
+}
+
+class RequestEnvelopeHistoryTokenResponse {
+  public $RequestEnvelopeHistoryTokenResult; // string
+}
+
 class RequestPDFNoWaterMark {
   public $EnvelopeID; // string
 }
@@ -1408,6 +1421,8 @@ class APIService extends SoapClient {
                                     'CorrectAndResendEnvelopeResponse' => 'CorrectAndResendEnvelopeResponse',
                                     'CorrectionStatus' => 'CorrectionStatus',
                                     'RecipientCorrectionStatus' => 'RecipientCorrectionStatus',
+                                    'RequestEnvelopeHistoryToken' => 'RequestEnvelopeHistoryToken',
+                                    'RequestEnvelopeHistoryTokenResponse' => 'RequestEnvelopeHistoryTokenResponse',
                                     'RequestPDFNoWaterMark' => 'RequestPDFNoWaterMark',
                                     'RequestPDFNoWaterMarkResponse' => 'RequestPDFNoWaterMarkResponse',
                                     'EnvelopePDF' => 'EnvelopePDF',
@@ -1607,6 +1622,20 @@ class APIService extends SoapClient {
    */
   public function CorrectAndResendEnvelope(CorrectAndResendEnvelope $parameters) {
     return $this->__soapCall('CorrectAndResendEnvelope', array($parameters),       array(
+            'uri' => 'http://www.docusign.net/API/3.0',
+            'soapaction' => ''
+           )
+      );
+  }
+
+  /**
+   *  
+   *
+   * @param RequestEnvelopeHistoryToken $parameters
+   * @return RequestEnvelopeHistoryTokenResponse
+   */
+  public function RequestEnvelopeHistoryToken(RequestEnvelopeHistoryToken $parameters) {
+    return $this->__soapCall('RequestEnvelopeHistoryToken', array($parameters),       array(
             'uri' => 'http://www.docusign.net/API/3.0',
             'soapaction' => ''
            )

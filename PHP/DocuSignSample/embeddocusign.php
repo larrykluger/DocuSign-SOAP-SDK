@@ -407,7 +407,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	    				<div class="sampleMessage">
 	    					Have the first signer fill out the Envelope (only a signature is required for the first signer)
 	    				</div>
-	    		<?
+	    		<?php
 	    			}
 	    		?>
 	    		<?php
@@ -417,14 +417,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	    				<div class="sampleMessage">
 	    					The first signer has completed the Envelope. Now the second signer will be asked to fill out details in the Envelope.
 	    				</div>
-	    		<?
+	    		<?php
 	    			}
 	    			
 	    			// Display the iFrame (if is needed)
 	    			if(isset($_SESSION["embedToken"]) && !empty($_SESSION["embedToken"])){
 	    		?>
 	    				<iframe class="embediframe" width="100%" height="70%" src="<?php echo $_SESSION["embedToken"]; ?>" id="hostiframe" name="hostiframe"></iframe>
-	    		<?
+	    		<?php
 	    			}
 	    		?>
 				</form>
